@@ -1,0 +1,103 @@
+{
+  "status": "OK",
+  "data": [
+    {
+      "id": 500000,
+      "ean": "2960000010000",
+      "contractId": 10002,
+      "isRechargeable": true,
+      "equities": [
+        {
+          "amount": "1000",
+          "currencyCode": "RUR",
+          "type": "FUNDS"
+        },
+        {
+          "amount": "0",
+          "currencyCode": "RUR",
+          "type": "CREDIT_LIMIT_AMOUNT_REMAINING"
+        },
+        {
+          "amount": "1000",
+          "currencyCode": "RUR",
+          "type": "OWN_AMOUNT_REMAINING"
+        }
+      ],
+      "bankInfo": {
+        "bic": "045004832",
+        "corrAccNum": "30103810100000000832",
+        "accNum": "30232810020000000071",
+        "ownerName": "РНКО \"Платежный Центр\" (ООО), г. Новосибирск",
+        "inn": "2225031594",
+        "kpp": "540501001",
+        "payee": "РНКО \"Платежный Центр\" (ООО)",
+        "purpose": "Перевод денежных средств без открытия банковского счета. Получатель Ряднов Андрей Александрович, карта №2960117944520. НДС не облагается."
+      },
+      "panTail": "0124",
+      "plasticType": "MW18",
+      "phone": "79211234567",
+      "isBlocked": false,
+      "isExpired": false,
+      "name": "Накопительная премиальная"
+    },
+    {
+      "id": 500001,
+      "ean": "2960000020000",
+      "contractId": 10001,
+      "isRechargeable": true,
+      "equities": [
+        {
+          "amount": "100",
+          "currencyCode": "RUR",
+          "type": "FUNDS"
+        },
+        {
+          "amount": "5000",
+          "currencyCode": "BAL",
+          "type": "BNS"
+        },
+        {
+          "amount": "5000",
+          "currencyCode": "BAL",
+          "type": "BNS_AVAILABLE"
+        },
+        {
+          "amount": "0",
+          "currencyCode": "BAL",
+          "type": "BNS_DELAY"
+        },
+        {
+          "amount": "0",
+          "currencyCode": "RUR",
+          "type": "CREDIT_LIMIT_AMOUNT_REMAINING"
+        },
+        {
+          "amount": "10000",
+          "currencyCode": "RUR",
+          "type": "OWN_AMOUNT_REMAINING"
+        },
+        {
+          "amount": "10000",
+          "currencyCode": "RUR",
+          "type": "UNPROCESSED_AMOUNT"
+        }
+      ],
+      "bankInfo": {
+        "bic": "045004832",
+        "corrAccNum": "30103810100000000832",
+        "accNum": "30232810020000000071",
+        "ownerName": "РНКО \"Платежный Центр\" (ООО), г. Новосибирск",
+        "inn": "2225031594",
+        "kpp": "540501001",
+        "payee": "РНКО \"Платежный Центр\" (ООО)",
+        "purpose": "Перевод денежных средств без открытия банковского счета. Получатель Ряднов Андрей Александрович, карта №2960261384487. НДС не облагается."
+      },
+      "panTail": "0123",
+      "plasticType": "MU17",
+      "phone": "79211234567",
+      "isBlocked": false,
+      "isExpired": false,
+      "name": "Платежная карта"
+    }
+  ]
+}

@@ -13,18 +13,20 @@ function Request() {
      * @param password
      */
     this.auth = function (cardNumber, password) {
-        var url = this.baseURI + 'authentication/authenticate?rid=' + generateHash();
+        if (!isLocalTest()) {
+            var url = this.baseURI + 'authentication/authenticate?rid=' + generateHash();
 
-        var data = {
-            principal: cardNumber,
-            secret:    password,
-            type:      "AUTO"
-        };
+            var data = {
+                principal: cardNumber,
+                secret:    password,
+                type:      "AUTO"
+            };
 
-        var requestData = getJson(ZenMoney.requestPost(url, data, defaultHeaders()));
-        if (requestData.status != 'OK') { // AUTH_WRONG || AUTH_LOCKED_TEMPORARY
-            ZenMoney.trace('Bad auth: ' + +requestData.status, 'warning');
-            throw new ZenMoney.Error('Не удалось авторизоваться');
+            var requestData = getJson(ZenMoney.requestPost(url, data, defaultHeaders()));
+            if (requestData.status != 'OK') { // AUTH_WRONG || AUTH_LOCKED_TEMPORARY || CORE_IS_NOT_INITIALIZED (тех. работы)
+                ZenMoney.trace('Bad auth: ' + +requestData.status, 'warning');
+                throw new ZenMoney.Error('Не удалось авторизоваться');
+            }
         }
     };
 
@@ -43,9 +45,13 @@ function Request() {
      * @returns {Object[]}
      */
     this.getAccounts = function () {
-        var url = this.baseURI + 'cards?rid=' + generateHash();
+        if (isLocalTest) {
+            var request = ZenMoney.getFile('/dev_data/accounts.json');
+        } else {
+            var url = this.baseURI + 'cards?rid=' + generateHash();
 
-        var request = ZenMoney.requestGet(url, defaultHeaders());
+            var request = ZenMoney.requestGet(url, defaultHeaders());
+        }
 
         return getJson(request).data;
     };
@@ -159,5 +165,11 @@ function Request() {
         }
 
         return time;
+    }
+
+    function isLocalTest() {
+        var preferences = ZenMoney.getPreferences();
+
+        return preferences.hasOwnProperty('local_test');
     }
 }

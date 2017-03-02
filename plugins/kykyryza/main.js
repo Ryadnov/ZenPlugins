@@ -15,18 +15,20 @@ function main() {
     request.auth(preferences.card_number, preferences.password);
 
     var accountsData = request.getAccounts();
-    bank.addAccounts(kykyruza.prepareAccountsData(accountsData));
 
-    var walletsData = request.getWallets();
-    bank.addAccounts(kykyruza.prepareWalletsData(walletsData));
-
-    var operationsData = request.getOperations();
-    var operations     = kykyruza.prepareOperationsData(operationsData);
-    bank.addOperations(operations);
-
-    if (operations.length > 0) {
-        request.setLastSyncTime(operations[0].date);
-    }
+    console.log(accountsData);
+//    bank.addAccounts(kykyruza.prepareAccountsData(accountsData));
+//
+//    var walletsData = request.getWallets();
+//    bank.addAccounts(kykyruza.prepareWalletsData(walletsData));
+//
+//    var operationsData = request.getOperations();
+//    var operations     = kykyruza.prepareOperationsData(operationsData);
+//    bank.addOperations(operations);
+//
+//    if (operations.length > 0) {
+//        request.setLastSyncTime(operations[0].date);
+//    }
 
     ZenMoney.saveData();
     ZenMoney.setResult({success: true});

@@ -694,6 +694,10 @@
                     return sendRequest('POST', url, headers, data);
                 };
 
+                this.getFile = function (name) {
+                    return getFileData('file://' + manifest.zp_plugin_directory + name);
+                };
+
                 this.addAccount     = addAccount;
                 this.addTransaction = addTransaction;
                 this.setResult      = setResult;
